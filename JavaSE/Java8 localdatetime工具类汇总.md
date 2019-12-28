@@ -48,7 +48,15 @@ String dateTimeStr = "2018-07-28 14:11:15";
 DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 LocalDateTime dateTime = LocalDateTime.parse(dateTimeStr, df);
 ```
-# 9.Date与LocalDateTime互转
+ # 9 获取当天最大和最小时间
+ ```java
+ String todayStart = LocalDateTime.of(date, LocalTime.MIN)
+ .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+String todayEnd = LocalDateTime.of(date, LocalTime.MAX)
+.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")); 
+ ```
+
+# 10.Date与LocalDateTime互转
 ```java
 //将java.util.Date 转换为java8 的java.time.LocalDateTime,默认时区为东8区
     public static LocalDateTime dateConvertToLocalDateTime(Date date) {
@@ -74,9 +82,4 @@ LocalDateTime dateTime = LocalDateTime.parse(dateTimeStr, df);
         Assert.assertTrue(dateSecond.equals(localDateTimeSecond));
 
     }
- ```
- # 10 获取当天最大和最小时间
- ```java
- String todayStart = LocalDateTime.of(date, LocalTime.MIN).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-String todayEnd = LocalDateTime.of(date, LocalTime.MAX).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")); 
  ```
